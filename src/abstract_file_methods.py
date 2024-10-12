@@ -6,10 +6,10 @@ class FileMethods(ABC):
     def add_vacancy(self):
         pass
 
-
-    @abstractmethod
-    def save_vacancy(self):
-        pass
+    #
+    # @abstractmethod
+    # def save_vacancy(self):
+    #     pass
 
     @abstractmethod
     def get_info(self):

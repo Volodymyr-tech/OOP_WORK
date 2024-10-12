@@ -3,10 +3,14 @@ from src.class_api import HH
 class Vacancies():
     '''Класс для работы с вакансиями получеными с хедхантера'''
     def __init__(self, name, url, salary, requirement):
-        self.__name = name
-        self.__url = url
-        self.__salary = salary if salary else 0
-        self.__requirement = requirement
+        self.name = name
+        self.url = url
+        self.salary = salary
+        self.requirement = requirement
+        # if self.url is None:
+        #     raise ValueError(f"URL не может быть None для вакансии: {self.name}")
+        # print(f'Создан объект вакансии: {self.name} с URL: {self.url}')
+
 
     @classmethod
     def get_list_vacancies(cls):
@@ -34,25 +38,36 @@ class Vacancies():
 
 
     def __repr__(self):
-        return (f'{self.__name}, link:{self.__url}\n'
-                f'Salary:{self.__salary},{self.__requirement}')
+        return (f'{self.name}, link:{self.url}\n'
+                f'Salary:{self.salary},{self.requirement}')
 
+    def __eq__(self, other):
+        if isinstance(other, Vacancies):
+            return self.url == other.url  # Сравниваем объекты только по URL
+        return False
 
-    # def validation(self, vacancies_list):
-    #     validated_vacancy = []
-    #     for vac in vacancies_list:
-    #         if vac.salary == "Зарплата не указана":
-    #             continue  # Пропустить вакансию, если зарплата не указана
-    #         validated_vacancy.append(vac)
-    #     return validated_vacancy
+    def __hash__(self):
+        return hash(self.url)
+
+    # @staticmethod
+    # def validation(salary):
+    #     if salary is None:
+    #         return
+
+        # validated_vacancy = []
+        # for vac in vacancies_list:
+        #     if vac.salary == "Зарплата не указана":
+        #         continue  # Пропустить вакансию, если зарплата не указана
+        #     validated_vacancy.append(vac)
+        # return validated_vacancy
 
     # def compare(self):
     #     pass
 
 
-if __name__ == '__main__':
-    data = Vacancies("Python Developer", "<https://hh.ru/vacancy/123456>", None, "Требования: опыт работы от 3 лет...")
-    print(repr(data))
-    obj_list = data.get_list_vacancies()
-    print(obj_list)
+# if __name__ == '__main__':
+#     data = Vacancies("Python Developer", "<https://hh.ru/vacancy/123456>", None, "Требования: опыт работы от 3 лет...")
+#     print(repr(data))
+#     obj_list = data.get_list_vacancies()
+#     print(obj_list)
 
