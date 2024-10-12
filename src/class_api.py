@@ -12,7 +12,6 @@ class HH(Parser):
         self.__headers = {'User-Agent': 'HH-User-Agent'}
         self.__params = {'text': '', 'page': 0, 'per_page': 1}
         self.__vacancies = []
-        # super().__init__(file_worker)
 
 
     def __api_conection(self):
@@ -21,7 +20,7 @@ class HH(Parser):
         if response.status_code == 200:
             return 'Подключение стабильно'
         else:
-            raise ConnectionError(f'{response.status_code}')
+            raise ConnectionError(f'Ошибка {response.status_code}')
 
     def load_vacancies(self, keyword):
         '''Метод получения Json ответа от апи HH'''
@@ -38,10 +37,3 @@ class HH(Parser):
         '''Геттер который возвращает список словарей с информацией о вакансиях'''
         return self.__vacancies
 
-
-
-if __name__ == "__main__":
-    sub = HH()
-    sub.load_vacancies('Python')
-    vacancies_sub = sub.get_vacancies
-    print(vacancies_sub)

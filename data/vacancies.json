@@ -1,15 +1,9 @@
 [
     {
-        "name": "C++ Developer",
-        "url": "https://hh.ru/vacancy/987654",
+        "name": "GOGO Developer",
+        "url": "https://hh.ru/vacancy/9823423454",
         "salary": "250 000 руб.",
         "requirement": "Требования: опыт работы от 10 лет..."
-    },
-    {
-        "name": "Python Developer",
-        "url": "https://hh.ru/vacancy/000000",
-        "salary": "100 000-150 000 руб.",
-        "requirement": "Требования: опыт работы от 3 лет..."
     },
     {
         "name": "Python Developer",
@@ -18,8 +12,14 @@
         "requirement": "Требования: опыт работы от 3 лет..."
     },
     {
-        "name": "GOGO Developer",
-        "url": "https://hh.ru/vacancy/9823423454",
+        "name": "Python Developer",
+        "url": "https://hh.ru/vacancy/000000",
+        "salary": "100 000-150 000 руб.",
+        "requirement": "Требования: опыт работы от 3 лет..."
+    },
+    {
+        "name": "C++ Developer",
+        "url": "https://hh.ru/vacancy/987654",
         "salary": "250 000 руб.",
         "requirement": "Требования: опыт работы от 10 лет..."
     }

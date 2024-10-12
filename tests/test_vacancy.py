@@ -1,0 +1,62 @@
+import pytest
+from src.class_vacancies import Vacancies
+
+def test_init():
+    emp = Vacancies
+    emp2 = Vacancies('java', 'https://hh.ru/vacancy/108435856', 'Зарплата от 10000 до 20000 USD', 'работай больше')
+    assert emp2.name == 'java'
+    assert emp2.url == 'https://hh.ru/vacancy/108435856'
+    assert emp2.salary == 'Зарплата от 10000 до 20000 USD'
+    assert emp2.requirement == 'работай больше'
+
+    assert emp2._extract_numbers() == (10000, 20000)
+
+def test_init_2():
+    emp = Vacancies
+    emp3 = Vacancies('python', 'https://hh.ru/vacancy/108435856', 'Зарплата от 0 до 20000 USD', 'работай больше')
+    assert emp3.name == 'python'
+    assert emp3.url == 'https://hh.ru/vacancy/108435856'
+    assert emp3.salary == 'Зарплата от 0 до 20000 USD'
+    assert emp3.requirement == 'работай больше'
+
+    assert emp3._extract_numbers() == (0, 20000)
+
+def test_init_3():
+    emp = Vacancies
+    emp4 = Vacancies('NODE', 'https://hh.ru/vacancy/108435856', 'Зарплата от 0 до "Верхняя планка не указана" USD', 'работай больше')
+    assert emp4.name == 'NODE'
+    assert emp4.url == 'https://hh.ru/vacancy/108435856'
+    assert emp4.salary == 'Зарплата от 0 до "Верхняя планка не указана" USD'
+    assert emp4.requirement == 'работай больше'
+
+    assert emp4._extract_numbers() == (0, 0)
+
+
+def test_average_salary():
+
+    emp4 = Vacancies('NODE', 'https://hh.ru/vacancy/108435856', 'Зарплата от 100 до 100 USD',
+                     'работай больше')
+    salary = emp4.average_salary()
+    assert salary == 100
+
+
+def test_ln():
+    emp1 = Vacancies('NODE', 'https://hh.ru/vacancy/108435856', 'Зарплата от 100 до 100 USD',
+                     'работай больше')
+    emp2 = Vacancies('Python', 'https://hh.ru/vacancy/1025', 'Зарплата от 200 до 200 USD',
+                     'работай больше')
+    return emp1 <= emp2
+
+def test_gt():
+    emp1 = Vacancies('NODE', 'https://hh.ru/vacancy/108435856', 'Зарплата от 600 до 100 USD',
+                     'работай больше')
+    emp2 = Vacancies('Python', 'https://hh.ru/vacancy/1025', 'Зарплата от 200 до 200 USD',
+                     'работай больше')
+    return emp1 > emp2
+
+def test_ge():
+    emp1 = Vacancies('NODE', 'https://hh.ru/vacancy/108435856', 'Зарплата от 600 до 100 USD',
+                     'работай больше')
+    emp2 = Vacancies('Python', 'https://hh.ru/vacancy/1025', 'Зарплата от 200 до 500 USD',
+                     'работай больше')
+    return emp1.average_salary() >= emp2.average_salary()

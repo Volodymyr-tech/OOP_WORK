@@ -10,7 +10,7 @@ class JsonSaver(FileMethods):
     '''Класс для сохранения и обработки информации о вакансиях в JSON-файл.'''
 
     def __init__(self, filename='vacancies.json'):
-        self.filename = filename
+        self.__filename = os.path.join(DATA_DIR, filename)
 
     def add_vacancy(self, *args):
         '''Добавляем одну или несколько вакансий, если их нет в файле'''
@@ -44,23 +44,21 @@ class JsonSaver(FileMethods):
     def __write_to_file(self, vacancies):
         """Сохраняем список вакансий в JSON файл"""
         data = self.__save_vacancy(vacancies)   #Вызываем метод для получения списка словарей вакансий
-        json_file = os.path.join(DATA_DIR, self.filename)
-        with open(json_file, 'w', encoding="utf-8") as file:
+        with open(self.__filename, 'w', encoding="utf-8") as file:
             json.dump(data, file, ensure_ascii=False, indent=4)
 
 
     def __open_file(self):
         """Открываем файл JSON и возвращаем множество вакансий"""
-        json_file = os.path.join(DATA_DIR, self.filename)
 
         # Если файл не существует, возвращаем пустое множество
-        if not os.path.exists(json_file):
+        if not os.path.exists(self.__filename):
             return set()
 
-        if os.path.getsize(json_file) == 0:
+        if os.path.getsize(self.__filename) == 0:
             return set()
 
-        with open(json_file, 'r', encoding="utf-8") as file:
+        with open(self.__filename, 'r', encoding="utf-8") as file:
             vacancies_in_file = json.load(file)
 
         vacancies_set = {
@@ -80,7 +78,8 @@ class JsonSaver(FileMethods):
         for vacancy in existing_vacancies:
             name = vacancy.name
             if filter in name:
-                return name  # Вакансии с ключевым словом по имени
+                print(name)
+        return "Больше вакансий нет (·_·) "# Вакансии с ключевым словом по имени
 
 
     def delete_info(self, filter):
@@ -110,6 +109,6 @@ listado = [emp1, emp2, emp3, emp4, emp5, emp6]
 saver.add_vacancy(listado)
 saver.delete_info(emp2)
 
-
+print(saver.get_info('Developer'))
 
 
