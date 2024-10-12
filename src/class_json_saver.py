@@ -84,10 +84,10 @@ class JsonSaver(FileMethods):
 
 
     def delete_info(self, filter):
-        # existing_vacancies = self.__open_file()
-        # existing_vacancies.remove(filter)
-        pass
-
+        existing_vacancies = self.__open_file()
+        existing_vacancies.remove(filter)
+        self.__save_vacancy(existing_vacancies)  # преобразует вакансии в формат списка словарей.
+        self.__write_to_file(existing_vacancies)
 
 
 
@@ -106,8 +106,9 @@ emp6 = Vacancies("Python Developer", "https://hh.ru/vacancy/000000", "100 000-15
                  "Требования: опыт работы от 3 лет...")
 # Создаем экземпляр класса JsonSaver
 saver = JsonSaver()
-saver.add_vacancy(emp1)
-saver.add_vacancy(emp2)
+listado = [emp1, emp2, emp3, emp4, emp5, emp6]
+saver.add_vacancy(listado)
+saver.delete_info(emp2)
 
 
 
