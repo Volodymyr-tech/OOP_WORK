@@ -1,6 +1,7 @@
-from src.class_json_saver import JsonSaver
 from src.class_api import HH
+from src.class_json_saver import JsonSaver
 from src.class_vacancies import Vacancies
+
 
 class UserInteraction:
     def __init__(self):

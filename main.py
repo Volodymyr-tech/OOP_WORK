@@ -13,13 +13,13 @@ def main():
 
         choice = input("Выберите действие: ")
 
-        if choice == '1':
+        if choice == "1":
             ui.search_vacancies()
-        elif choice == '2':
+        elif choice == "2":
             ui.show_vacancies()
-        elif choice == '3':
+        elif choice == "3":
             ui.delete_vacancy()
-        elif choice == '4':
+        elif choice == "4":
             print("Выход из программы.")
             break
         else:

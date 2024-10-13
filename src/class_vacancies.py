@@ -1,10 +1,14 @@
-from src.class_api import HH
 import re
+from typing import Any, Dict, List
 
+class Vacancies:
+    """Класс для работы с вакансиями получеными с хедхантера"""
+    name: str
+    url: str
+    salary: Any
+    requirement: str
 
-class Vacancies():
-    '''Класс для работы с вакансиями получеными с хедхантера'''
-    __slots__ = ('name', 'url', 'salary', 'requirement')
+    __slots__ = ("name", "url", "salary", "requirement")
 
     def __init__(self, name, url, salary, requirement):
 
@@ -13,32 +17,31 @@ class Vacancies():
         self.salary = salary
         self.requirement = requirement
 
-
     @classmethod
-    def get_list_vacancies(cls, vacancies):
-        '''Класс-метод для создания списка объектов класса Vacancy'''
+    def get_list_vacancies(cls, vacancies:list):
+        """Класс-метод для создания списка объектов класса Vacancy"""
 
         vacancies_list = [
             cls(
                 name=vac.get("name", "Нет названия"),
                 url=vac.get("alternate_url", "Нет URL"),
                 salary=(
-            f'Зарплата от '
-            f'{vac["salary"].get("from") if vac["salary"].get("from") is not None else 0} до '
-            f'{vac["salary"].get("to") if vac["salary"].get("to") is not None else "'Верхний предел не указан'"} '
-            f'{vac["salary"].get("currency", "Валюта не указана")}'
-            if vac["salary"] is not None else "Зарплата не указана"
-            ),
-                requirement=vac.get('snippet', {}).get('requirement', "нет описания")
-            ) for vac in vacancies
+                    f"Зарплата от "
+                    f'{vac["salary"].get("from") if vac["salary"].get("from") is not None else 0} до '
+                    f'{vac["salary"].get("to") if vac["salary"].get("to") is not None else "'Верхний предел не указан'"} '
+                    f'{vac["salary"].get("currency", "Валюта не указана")}'
+                    if vac["salary"] is not None
+                    else "Зарплата не указана"
+                ),
+                requirement=vac.get("snippet", {}).get("requirement", "нет описания"),
+            )
+            for vac in vacancies #  Преобразовывем список словарей в список объектов класса Вакансия
         ]
 
         return vacancies_list
 
-
     def __repr__(self):
-        return (f'{self.name}, link:{self.url}\n'
-                f'Salary:{self.salary},{self.requirement}')
+        return f"{self.name}, link:{self.url}\n" f"Salary:{self.salary},{self.requirement}"
 
     def __eq__(self, other):
         if isinstance(other, Vacancies):
@@ -48,11 +51,10 @@ class Vacancies():
     def __hash__(self):
         return hash(self.url)
 
-
     def _extract_numbers(self):
         """Извлекает все числа из строки"""
 
-        numbers = re.findall(r'\d+', self.salary) # Получаем список зп
+        numbers = re.findall(r"\d+", self.salary)  # Получаем список зп
 
         # Преобразуем найденные строки в числа
         numbers = [int(num) for num in numbers]
@@ -62,8 +64,8 @@ class Vacancies():
         else:
             return numbers[0], numbers[-1]
 
-
     def _average_salary(self):
+        'Метод для подсчета средней зарплаты вакансии '
         salary = self._extract_numbers()
         if 0 in salary:
             average_salary = sum(salary)
@@ -78,13 +80,11 @@ class Vacancies():
         else:
             return self._average_salary() <= other._average_salary()
 
-
     def __gt__(self, other):
         if not isinstance(other, Vacancies):
             raise TypeError("Операнд справа должен иметь тип Vacancy")
         else:
             return self._average_salary() > other._average_salary()
-
 
     def __ge__(self, other):
         if not isinstance(other, Vacancies):
