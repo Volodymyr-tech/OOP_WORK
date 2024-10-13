@@ -29,7 +29,7 @@ class Vacancies:
                 url=vac.get("alternate_url", "Нет URL"),
                 salary=(
                     f"Зарплата от "
-                    f'{vac["salary"].get("from") if vac["salary"].get("from") is not None else 0} до '
+                    f'{vac["salary"].get("from") if vac["salary"].get("from") is not None else "не указано"} до '
                     f'{vac["salary"].get("to") if vac["salary"].get("to") is not None else "'Верхний предел не указан'"} '
                     f'{vac["salary"].get("currency", "Валюта не указана")}'
                     if vac["salary"] is not None
@@ -42,11 +42,11 @@ class Vacancies:
 
         return vacancies_list
 
-    def __repr__(self):
-        return f"{self.name}, link:{self.url}\n" f"Salary:{self.salary},{self.requirement}"
+    # def __repr__(self):
+    #     return f"{self.name}, link:{self.url}\n" f"Salary:{self.salary},{self.requirement}"
 
     def __str__(self):
-        return f"{self.name} средняя зарплата:{self.average_salary},ссылка: {self.url}"
+        return f"{self.name} средняя зарплата:{self.average_salary()},ссылка: {self.url}"
 
     def __eq__(self, other):
         if isinstance(other, Vacancies):
@@ -57,20 +57,24 @@ class Vacancies:
         return hash(self.url)
 
     def _extract_numbers(self):
-        """Извлекает все числа из строки"""
-        pattern = r"(\d[\d\s]*)"
+        """Извлекает все числа из строки зарплаты."""
+        if isinstance(self.salary, (int, float)):  # Если salary уже число
+            return self.salary, self.salary
 
-        numbers = re.findall(pattern, self.salary)  # Находим все числовые части в строке
-        numbers = [int(num.replace(" ", "")) for num in numbers]  # Убираем пробелы и преобразуем в int
+        if isinstance(self.salary, str):  # Если salary строка, обрабатываем как строку
+            pattern = r"(\d[\d\s]*)"  # Паттерн для поиска чисел в строке
+            numbers = re.findall(pattern, self.salary)  # Находим все числовые части в строке
+            numbers = [int(num.replace(" ", "")) for num in numbers]  # Убираем пробелы и преобразуем в int
 
-        # Проверяем различные сценарии: когда указано одно число, когда диапазон, или когда пределы не указаны
-        if not numbers:  # Если чисел нет, возвращаем (0, 0) как индикатор
-            return 0, 0
+            if not numbers:  # Если чисел нет, возвращаем (0, 0)
+                return 0, 0
 
-        if len(numbers) == 1:  # Если найдено одно число, возвращаем его и 0
-            return numbers[0], 0
+            if len(numbers) == 1:  # Если найдено одно число, возвращаем его и 0
+                return numbers[0], 0
 
-        return numbers[0], numbers[-1]
+            return numbers[0], numbers[-1]
+
+        return 0, 0  # Если формат зарплаты непонятный
 
     def average_salary(self):
         "Метод для подсчета средней зарплаты вакансии"
@@ -83,8 +87,8 @@ class Vacancies:
             return max_salary
         if max_salary == 0:
             return min_salary
-
-        return (min_salary + max_salary) / 2
+        result = (min_salary + max_salary) / 2
+        return result
 
     def __le__(self, other):
         if not isinstance(other, Vacancies):

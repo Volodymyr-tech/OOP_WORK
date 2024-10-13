@@ -79,15 +79,13 @@ class JsonSaver(FileMethods):
 
     def get_all_vacancies(self):
         """Вывод информации о вакансии по указанному ключевому слову полученому от юзера"""
-        existing_vacancies = self.__open_file()  # Получаем множество существующих вакансий
-        for vacancy in existing_vacancies:
-            print(vacancy)
-        return "Больше вакансий нет (·_·) "
+        existing_vacancies = self.__open_file()  # Загружаем данные из файла
+        return list(existing_vacancies)  # Возвращаем список объектов класса Vacancies
 
     def delete_info(self, filter):
         """Удаление вакансии из JSON файла"""
         existing_vacancies = self.__open_file()
-        to_remove = Vacancies
+        to_remove = None
         for vac in existing_vacancies:
             if filter == vac.url:
                 to_remove = vac

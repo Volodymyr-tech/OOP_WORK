@@ -5,5 +5,4 @@ def sort_vacancies_by_salary(vacancies: list[Vacancies]) -> list[Vacancies]:
     """
     Функция для сортировки вакансий по зарплате
     """
-    by_salary = sorted(vacancies, key=lambda x: x.salary, reverse=True)
-    return by_salary
+    return sorted(vacancies, key=lambda x: x.average_salary(), reverse=True)

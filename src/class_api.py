@@ -18,7 +18,7 @@ class HH(Parser):
         """Метод для проверки подключения API"""
         response = requests.get(self.__url)
         if response.status_code == 200:
-            return "Подключение стабильно"
+            return "Подключение стабильно, ищу вакансии в интернете"
         else:
             raise ConnectionError(f"Ошибка {response.status_code}")
 
