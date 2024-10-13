@@ -8,6 +8,7 @@ from src.class_vacancies import Vacancies
 
 class JsonSaver(FileMethods):
     """Класс для сохранения и обработки информации о вакансиях в JSON-файл."""
+
     filename: str
 
     def __init__(self, filename="vacancies.json"):
@@ -50,41 +51,56 @@ class JsonSaver(FileMethods):
     def __open_file(self):
         """Открываем файл JSON и возвращаем множество вакансий"""
 
-        if not os.path.exists(self.__filename): # Если файл не существует, возвращаем пустое множество
+        if not os.path.exists(self.__filename):  # Если файл не существует, возвращаем пустое множество
             return set()
 
-        if os.path.getsize(self.__filename) == 0: # Если файл пустой, возвращаем пустое множество
+        if os.path.getsize(self.__filename) == 0:  # Если файл пустой, возвращаем пустое множество
             return set()
 
         with open(self.__filename, "r", encoding="utf-8") as file:
-            vacancies_in_file = json.load(file) # Получаем вакансии из JSON файла
+            vacancies_in_file = json.load(file)  # Получаем вакансии из JSON файла
 
         vacancies_set = {
             Vacancies(vac.get("name"), vac.get("url"), vac.get("salary"), vac.get("requirement"))
-            for vac in vacancies_in_file # Преобразуем данные в множество объектов класса Vacancies
+            for vac in vacancies_in_file  # Преобразуем данные в множество объектов класса Vacancies
         }
 
         return vacancies_set
 
     def get_info(self, filter):
-        '''Вывод информации о вакансии по указанному ключевому слову полученому от юзера'''
+        """Вывод информации о вакансии по указанному ключевому слову полученому от юзера"""
         existing_vacancies = self.__open_file()  # Получаем множество существующих вакансий
         for vacancy in existing_vacancies:
+            data = vacancy.requirement
             name = vacancy.name
-            if filter in name:
-                print(name)
+            if filter in data or filter in name:
+                print(vacancy)
         return "Больше вакансий нет (·_·) "  # Вакансии с ключевым словом по имени
 
+    def get_all_vacancies(self):
+        """Вывод информации о вакансии по указанному ключевому слову полученому от юзера"""
+        existing_vacancies = self.__open_file()  # Получаем множество существующих вакансий
+        for vacancy in existing_vacancies:
+            print(vacancy)
+        return "Больше вакансий нет (·_·) "
+
     def delete_info(self, filter):
-        '''Удаление вакансии из JSON файла'''
+        """Удаление вакансии из JSON файла"""
         existing_vacancies = self.__open_file()
-        existing_vacancies.remove(filter)
+        to_remove = Vacancies
+        for vac in existing_vacancies:
+            if filter == vac.url:
+                to_remove = vac
+        existing_vacancies.remove(to_remove)
         self.__save_vacancy(existing_vacancies)  # преобразует вакансии в формат списка словарей.
         self.__write_to_file(existing_vacancies)
 
-
-# Пример использования
-
-# saver.delete_info(emp2)
-
-# print(saver.get_info('Developer'))
+    def sort_vacancies_by_salary(self, filter):
+        """Функция для сортировки вакансий по зарплате"""
+        if filter == "да":
+            existing_vacancies = self.__open_file()
+            by_salary = sorted(existing_vacancies, key=lambda x: x.salary, reverse=True)
+            for i in by_salary:
+                print(i)
+        else:
+            None

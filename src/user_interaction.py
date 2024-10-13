@@ -17,10 +17,15 @@ class UserInteraction:
         self.saver.add_vacancy(vacancy_objects)  # Сохраняем вакансии
         print(f"Найдено и сохранено {len(vacancy_objects)} вакансий.")
 
-    def show_vacancies(self):
+    def show_vacancies_by_filter(self):
         """Показываем вакансии по фильтру"""
         keyword = input("Введите ключевое слово для фильтра вакансий: ")
         result = self.saver.get_info(keyword)
+        print(result)
+
+    def show_all_vacancies(self):
+        """Показываем вакансии по фильтру"""
+        result = self.saver.get_all_vacancies()
         print(result)
 
     def delete_vacancy(self):
@@ -28,3 +33,8 @@ class UserInteraction:
         url = input("Введите URL вакансии, которую нужно удалить: ")
         self.saver.delete_info(url)
         print("Вакансия удалена.")
+
+    def filter_vacancies(self):
+        filter = input("Сортировать по возрастанию?\n" "Да/Нет").lower()
+        result = self.saver.sort_vacancies_by_salary(filter)
+        print(result)

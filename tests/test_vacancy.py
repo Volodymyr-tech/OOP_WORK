@@ -1,3 +1,5 @@
+import pytest
+
 from src.class_vacancies import Vacancies
 
 
@@ -57,3 +59,19 @@ def test_ge():
     emp1 = Vacancies("NODE", "https://hh.ru/vacancy/108435856", "Зарплата от 600 до 100 USD", "работай больше")
     emp2 = Vacancies("Python", "https://hh.ru/vacancy/1025", "Зарплата от 200 до 500 USD", "работай больше")
     return emp1.average_salary() >= emp2.average_salary()
+
+
+@pytest.fixture
+def sample_vacancy():
+    return Vacancies(
+        "Python Developer", "https://hh.ru/vacancy/123", "от 100 000 до 200 000 RUR", "Требования: опыт работы"
+    )
+
+
+def test_average_salary(sample_vacancy):
+    assert sample_vacancy.average_salary() == 150000
+
+
+def test_comparison(sample_vacancy):
+    other_vacancy = Vacancies("Java Developer", "https://hh.ru/vacancy/124", "1510000 RUR", "Требования: опыт работы")
+    assert other_vacancy > sample_vacancy

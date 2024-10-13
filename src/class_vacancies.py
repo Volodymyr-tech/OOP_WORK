@@ -1,8 +1,10 @@
 import re
 from typing import Any, Dict, List
 
+
 class Vacancies:
     """Класс для работы с вакансиями получеными с хедхантера"""
+
     name: str
     url: str
     salary: Any
@@ -18,7 +20,7 @@ class Vacancies:
         self.requirement = requirement
 
     @classmethod
-    def get_list_vacancies(cls, vacancies:list):
+    def get_list_vacancies(cls, vacancies: list):
         """Класс-метод для создания списка объектов класса Vacancy"""
 
         vacancies_list = [
@@ -35,13 +37,16 @@ class Vacancies:
                 ),
                 requirement=vac.get("snippet", {}).get("requirement", "нет описания"),
             )
-            for vac in vacancies #  Преобразовывем список словарей в список объектов класса Вакансия
+            for vac in vacancies  #  Преобразовывем список словарей в список объектов класса Вакансия
         ]
 
         return vacancies_list
 
     def __repr__(self):
         return f"{self.name}, link:{self.url}\n" f"Salary:{self.salary},{self.requirement}"
+
+    def __str__(self):
+        return f"{self.name} средняя зарплата:{self.average_salary},ссылка: {self.url}"
 
     def __eq__(self, other):
         if isinstance(other, Vacancies):
@@ -53,41 +58,48 @@ class Vacancies:
 
     def _extract_numbers(self):
         """Извлекает все числа из строки"""
+        pattern = r"(\d[\d\s]*)"
 
-        numbers = re.findall(r"\d+", self.salary)  # Получаем список зп
+        numbers = re.findall(pattern, self.salary)  # Находим все числовые части в строке
+        numbers = [int(num.replace(" ", "")) for num in numbers]  # Убираем пробелы и преобразуем в int
 
-        # Преобразуем найденные строки в числа
-        numbers = [int(num) for num in numbers]
+        # Проверяем различные сценарии: когда указано одно число, когда диапазон, или когда пределы не указаны
+        if not numbers:  # Если чисел нет, возвращаем (0, 0) как индикатор
+            return 0, 0
 
-        if len(numbers) == 1:
-            return numbers[0], 0  # Если найдено одно число, считаем это минимальной зарплатой
-        else:
-            return numbers[0], numbers[-1]
+        if len(numbers) == 1:  # Если найдено одно число, возвращаем его и 0
+            return numbers[0], 0
 
-    def _average_salary(self):
-        'Метод для подсчета средней зарплаты вакансии '
-        salary = self._extract_numbers()
-        if 0 in salary:
-            average_salary = sum(salary)
-            return average_salary
-        else:
-            average_salary = sum(salary)
-            return average_salary / len(salary)
+        return numbers[0], numbers[-1]
+
+    def average_salary(self):
+        "Метод для подсчета средней зарплаты вакансии"
+        min_salary, max_salary = self._extract_numbers()
+
+        if min_salary == 0 and max_salary == 0:  # Если оба числа равны 0, возвращаем 0
+            return 0
+
+        if min_salary == 0:  # Если одно из чисел равно 0, возвращаем ненулевое значение
+            return max_salary
+        if max_salary == 0:
+            return min_salary
+
+        return (min_salary + max_salary) / 2
 
     def __le__(self, other):
         if not isinstance(other, Vacancies):
             raise TypeError("Операнд справа должен иметь тип Vacancy")
         else:
-            return self._average_salary() <= other._average_salary()
+            return self.average_salary() <= other.average_salary()
 
     def __gt__(self, other):
         if not isinstance(other, Vacancies):
             raise TypeError("Операнд справа должен иметь тип Vacancy")
         else:
-            return self._average_salary() > other._average_salary()
+            return self.average_salary() > other.average_salary()
 
     def __ge__(self, other):
         if not isinstance(other, Vacancies):
             raise TypeError("Операнд справа должен иметь тип Vacancy")
         else:
-            return self._average_salary() >= other._average_salary()
+            return self.average_salary() >= other.average_salary()

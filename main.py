@@ -9,7 +9,9 @@ def main():
         print("1. Поиск вакансий")
         print("2. Показать вакансии")
         print("3. Удалить вакансию")
-        print("4. Выход")
+        print("4. Фильтровать вакансии по зарплате")
+        print("5. Смотреть все вакансии")
+        print("6. Стоп")
 
         choice = input("Выберите действие: ")
 
@@ -20,6 +22,10 @@ def main():
         elif choice == "3":
             ui.delete_vacancy()
         elif choice == "4":
+            ui.filter_vacancies()
+        elif choice == "5":
+            ui.show_all_vacancies()
+        elif choice == "6":
             print("Выход из программы.")
             break
         else:

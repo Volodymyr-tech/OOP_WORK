@@ -1,81 +1,9 @@
 [
     {
-        "name": "Data Science",
-        "url": "https://hh.ru/vacancy/123654",
-        "salary": "500 000 руб.",
-        "requirement": "Требования: опыт работы от 10 лет..."
-    },
-    {
-        "name": "Python Backend Developer",
-        "url": "https://hh.ru/vacancy/108453823",
-        "salary": "Зарплата от 200000 до 250000 KZT",
-        "requirement": "Уверенные знания <highlighttext>Python</highlighttext> (3.10) и опыт разработки на нем от менее 6 месяцев. ⦁ Опыт работы с фреймворками: Flask, FastApi..."
-    },
-    {
-        "name": "Разработчик Python (junior)",
-        "url": "https://hh.ru/vacancy/108435856",
-        "salary": "Зарплата от 89000 до 'Верхний предел не указан' RUR",
-        "requirement": "Опыт работы с <highlighttext>Python</highlighttext>. Знание языка запросов SQL. Желание работать и развиваться."
-    },
-    {
-        "name": "Руководитель проектного офиса (СPO)",
-        "url": "https://hh.ru/vacancy/108539544",
-        "salary": "Зарплата от 10000 до 'Верхний предел не указан' USD",
-        "requirement": "Английский язык: разговорный не ниже B1-B2. Знание SQL и <highlighttext>Python</highlighttext>: для работы с данными и аналитики. "
-    },
-    {
-        "name": " Science",
-        "url": "https://hh.ru/vacancy/3654",
-        "salary": "500 000 руб.",
-        "requirement": "Требования: опыт работы от 10 лет..."
-    },
-    {
-        "name": "Junior backend developer",
-        "url": "https://hh.ru/vacancy/108350897",
-        "salary": "Зарплата от 0 до 80000 RUR",
-        "requirement": "Bobr AI это: Опыт работы с одним из языков: <highlighttext>Python</highlighttext>, Node.js, Java, Ruby или PHP. Знание RESTful API, основ HTTP..."
-    },
-    {
-        "name": "Аналитик данных (стажёр)",
-        "url": "https://hh.ru/vacancy/108463178",
-        "salary": "Зарплата от 50000 до 50000 RUR",
-        "requirement": "Готовность уделять стажировке 40 часов неделю. Опыт анализа данных в <highlighttext>Python</highlighttext>/R или иной релевантный опыт. Опыт взаимодействия с системами..."
-    },
-    {
-        "name": "Junior Python разработчик",
-        "url": "https://hh.ru/vacancy/108001774",
-        "salary": "Зарплата от 125000 до 'Верхний предел не указан' RUR",
-        "requirement": "Базовые знания <highlighttext>Python</highlighttext>. Понимание ООП. Опыт работы с фреймворками (например, Django, Flask). Знание SQL. Базовые знания HTML, CSS, JavaScript. "
-    },
-    {
         "name": "Junior Python Developer",
         "url": "https://hh.ru/vacancy/107268519",
         "salary": "Зарплата от 65000 до 'Верхний предел не указан' RUR",
         "requirement": "Базовые знания <highlighttext>Python</highlighttext>. Опыт написания REST приложений на любом <highlighttext>Python</highlighttext> фреймворке (Flask, FastAPI, Django и др.). Понимание основ SQL и..."
-    },
-    {
-        "name": "Инженер по тестированию",
-        "url": "https://hh.ru/vacancy/108455991",
-        "salary": "Зарплата от 180000 до 250000 RUR",
-        "requirement": "Владение английским (умеете читать и писать). Высшее образование. Владение <highlighttext>Python</highlighttext>/C#. Навыки автоматизации тестов UI для веб-приложений. "
-    },
-    {
-        "name": "Python Developer",
-        "url": "https://hh.ru/vacancy/000000",
-        "salary": "100 000-150 000 руб.",
-        "requirement": "Требования: опыт работы от 3 лет..."
-    },
-    {
-        "name": "Java Script",
-        "url": "https://hh.ru/vacancy/60003",
-        "salary": "200 000-150 000 руб.",
-        "requirement": "Требования: опыт работы от 12 лет..."
-    },
-    {
-        "name": "Руководитель проектного офиса (СPO)",
-        "url": "https://hh.ru/vacancy/108305970",
-        "salary": "Зарплата от 10000 до 'Верхний предел не указан' USD",
-        "requirement": "Английский язык: разговорный не ниже B1-B2. Знание SQL и <highlighttext>Python</highlighttext>: для работы с данными и аналитики. "
     },
     {
         "name": "Go Developer",
@@ -84,52 +12,16 @@
         "requirement": "Требования: опыт работы от 2 лет..."
     },
     {
-        "name": "Python Developer (Remote)",
-        "url": "https://hh.ru/vacancy/108424453",
-        "salary": "Зарплата не указана",
-        "requirement": "Коммерческий опыт создания веб-приложений с использованием <highlighttext>Python</highlighttext>-фреймворков (Django, FastAPI, Flask) от 1 года. Знание <highlighttext>Python</highlighttext> Core и встроенной..."
+        "name": "Руководитель проектного офиса (СPO)",
+        "url": "https://hh.ru/vacancy/108539544",
+        "salary": "Зарплата от 10000 до 'Верхний предел не указан' USD",
+        "requirement": "Английский язык: разговорный не ниже B1-B2. Знание SQL и <highlighttext>Python</highlighttext>: для работы с данными и аналитики. "
     },
     {
-        "name": "Младший Back-end разработчик",
-        "url": "https://hh.ru/vacancy/108444291",
-        "salary": "Зарплата от 80000 до 100000 RUR",
-        "requirement": "Языки программирования <highlighttext>Python</highlighttext>/Golang, C#. Понимание принципа работы REST API, HTTP и клиент-серверной архитектуры. Знание основ работы с реляционными..."
-    },
-    {
-        "name": "Программист - разработчик Junior - .NET C# ASP Java",
-        "url": "https://hh.ru/vacancy/108291622",
-        "salary": "Зарплата от 150 до 600 USD",
-        "requirement": "Приветствуется одновременное умение применять другие языки технологии (по убыванию приоритетности: PHP, C++, <highlighttext>Python</highlighttext>). Уверенное владение PHP (можно без объектного подхода). "
-    },
-    {
-        "name": "Python-разработчик",
-        "url": "https://hh.ru/vacancy/108419998",
-        "salary": "Зарплата от 40000 до 80000 RUR",
-        "requirement": "Высшее образование технического ВУЗа (можно неоконченное/неполное и/или последнего или предпоследнего курса). Знание языка программирования <highlighttext>Python</highlighttext> (на уровне выше..."
-    },
-    {
-        "name": "Python-разработчик",
-        "url": "https://hh.ru/vacancy/108481421",
-        "salary": "Зарплата не указана",
-        "requirement": "<highlighttext>Python</highlighttext> (flask/django, multiprocessing, pandas, numpy). Основы разработки Http сервера (низкая нагрузка). Sql (Postgres/MSSql). ООП, паттерны программирования. Gitlab(администрирование). "
-    },
-    {
-        "name": "Python Developer",
-        "url": "https://hh.ru/vacancy/123456",
-        "salary": "100 000-150 000 руб.",
-        "requirement": "Требования: опыт работы от 3 лет..."
-    },
-    {
-        "name": "Дата аналитик/Data analyst",
-        "url": "https://hh.ru/vacancy/108499219",
-        "salary": "Зарплата не указана",
-        "requirement": "Опыт работы с Excel, Power BI, SQL, <highlighttext>Python</highlighttext> для сбора и анализа данных. -Опыт работы с инструментами визуализации данных, такими..."
-    },
-    {
-        "name": "Node.js Developer",
-        "url": "https://hh.ru/vacancy/7654",
-        "salary": "250 000 руб.",
-        "requirement": "Требования: опыт работы от 10 лет..."
+        "name": "Python Backend Developer",
+        "url": "https://hh.ru/vacancy/108453823",
+        "salary": "Зарплата от 200000 до 250000 KZT",
+        "requirement": "Уверенные знания <highlighttext>Python</highlighttext> (3.10) и опыт разработки на нем от менее 6 месяцев. ⦁ Опыт работы с фреймворками: Flask, FastApi..."
     },
     {
         "name": "GOGO Developer",
@@ -138,10 +30,10 @@
         "requirement": "Требования: опыт работы от 10 лет..."
     },
     {
-        "name": "C++ Developer",
-        "url": "https://hh.ru/vacancy/987654",
-        "salary": "250 000 руб.",
-        "requirement": "Требования: опыт работы от 10 лет..."
+        "name": "Разработчик Python (junior)",
+        "url": "https://hh.ru/vacancy/108497705",
+        "salary": "Зарплата не указана",
+        "requirement": "Знание языка программирования <highlighttext>Python</highlighttext>. Знания реляционных баз данных. Знание основных принципов объектно-ориентированного программирования. Знание таких библиотек: PyTorch, TensorFlow, numpy..."
     },
     {
         "name": "Программист (Junior - младший разработчик)",
@@ -150,16 +42,58 @@
         "requirement": "Знание одного из объектно-ориентированного языка программирования, к примеру: C++\\C#, Delphi, <highlighttext>Python</highlighttext>, Pascal, 1С. Знание работы с СУБД..."
     },
     {
-        "name": "Специалист по IT",
-        "url": "https://hh.ru/vacancy/108305883",
-        "salary": "Зарплата от 1000000 до 'Верхний предел не указан' KZT",
-        "requirement": "2. Уверенное владение одним или несколькими языками программирования: <highlighttext>Python</highlighttext>, Java или другими. 3. Опыт интеграции с ERP-системами (1С..."
+        "name": " Science",
+        "url": "https://hh.ru/vacancy/3654",
+        "salary": "500 000 руб.",
+        "requirement": "Требования: опыт работы от 10 лет..."
+    },
+    {
+        "name": "Python Developer",
+        "url": "https://hh.ru/vacancy/123456",
+        "salary": "100 000-150 000 руб.",
+        "requirement": "Требования: опыт работы от 3 лет..."
     },
     {
         "name": "Разработчик Python (junior)",
-        "url": "https://hh.ru/vacancy/108497705",
-        "salary": "Зарплата не указана",
-        "requirement": "Знание языка программирования <highlighttext>Python</highlighttext>. Знания реляционных баз данных. Знание основных принципов объектно-ориентированного программирования. Знание таких библиотек: PyTorch, TensorFlow, numpy..."
+        "url": "https://hh.ru/vacancy/108435856",
+        "salary": "Зарплата от 89000 до 'Верхний предел не указан' RUR",
+        "requirement": "Опыт работы с <highlighttext>Python</highlighttext>. Знание языка запросов SQL. Желание работать и развиваться."
+    },
+    {
+        "name": "C++ Developer",
+        "url": "https://hh.ru/vacancy/987654",
+        "salary": "250 000 руб.",
+        "requirement": "Требования: опыт работы от 10 лет..."
+    },
+    {
+        "name": "Python Developer",
+        "url": "https://hh.ru/vacancy/000000",
+        "salary": "100 000-150 000 руб.",
+        "requirement": "Требования: опыт работы от 3 лет..."
+    },
+    {
+        "name": "Python-разработчик",
+        "url": "https://hh.ru/vacancy/108419998",
+        "salary": "Зарплата от 40000 до 80000 RUR",
+        "requirement": "Высшее образование технического ВУЗа (можно неоконченное/неполное и/или последнего или предпоследнего курса). Знание языка программирования <highlighttext>Python</highlighttext> (на уровне выше..."
+    },
+    {
+        "name": "Junior Python разработчик",
+        "url": "https://hh.ru/vacancy/108001774",
+        "salary": "Зарплата от 125000 до 'Верхний предел не указан' RUR",
+        "requirement": "Базовые знания <highlighttext>Python</highlighttext>. Понимание ООП. Опыт работы с фреймворками (например, Django, Flask). Знание SQL. Базовые знания HTML, CSS, JavaScript. "
+    },
+    {
+        "name": "Программист - разработчик Junior - .NET C# ASP Java",
+        "url": "https://hh.ru/vacancy/108291622",
+        "salary": "Зарплата от 150 до 600 USD",
+        "requirement": "Приветствуется одновременное умение применять другие языки технологии (по убыванию приоритетности: PHP, C++, <highlighttext>Python</highlighttext>). Уверенное владение PHP (можно без объектного подхода). "
+    },
+    {
+        "name": "Data Science",
+        "url": "https://hh.ru/vacancy/123654",
+        "salary": "500 000 руб.",
+        "requirement": "Требования: опыт работы от 10 лет..."
     },
     {
         "name": "AI/ML Engineer Стажёр",
@@ -168,9 +102,69 @@
         "requirement": "Идеальный кандидат уже имеет опыт работы с Telegram API и предпочтительно использует aiogram. Если вы способны создать функционального бота с..."
     },
     {
+        "name": "Аналитик данных (стажёр)",
+        "url": "https://hh.ru/vacancy/108463178",
+        "salary": "Зарплата от 50000 до 50000 RUR",
+        "requirement": "Готовность уделять стажировке 40 часов неделю. Опыт анализа данных в <highlighttext>Python</highlighttext>/R или иной релевантный опыт. Опыт взаимодействия с системами..."
+    },
+    {
+        "name": "Инженер по тестированию",
+        "url": "https://hh.ru/vacancy/108455991",
+        "salary": "Зарплата от 180000 до 250000 RUR",
+        "requirement": "Владение английским (умеете читать и писать). Высшее образование. Владение <highlighttext>Python</highlighttext>/C#. Навыки автоматизации тестов UI для веб-приложений. "
+    },
+    {
+        "name": "Младший Back-end разработчик",
+        "url": "https://hh.ru/vacancy/108444291",
+        "salary": "Зарплата от 80000 до 100000 RUR",
+        "requirement": "Языки программирования <highlighttext>Python</highlighttext>/Golang, C#. Понимание принципа работы REST API, HTTP и клиент-серверной архитектуры. Знание основ работы с реляционными..."
+    },
+    {
         "name": "Программист Python middle",
         "url": "https://hh.ru/vacancy/107402402",
         "salary": "Зарплата от 100000 до 150000 RUR",
         "requirement": "Опыт самостоятельной работы от 3 лет. Опыт работы с API - ОБЯЗАТЕЛЬНО! Опыт внедрения нейросети (продажи) - ОБЯЗАТЕЛЬНО! Создание приложений в том..."
+    },
+    {
+        "name": "Руководитель проектного офиса (СPO)",
+        "url": "https://hh.ru/vacancy/108305970",
+        "salary": "Зарплата от 10000 до 'Верхний предел не указан' USD",
+        "requirement": "Английский язык: разговорный не ниже B1-B2. Знание SQL и <highlighttext>Python</highlighttext>: для работы с данными и аналитики. "
+    },
+    {
+        "name": "Node.js Developer",
+        "url": "https://hh.ru/vacancy/7654",
+        "salary": "250 000 руб.",
+        "requirement": "Требования: опыт работы от 10 лет..."
+    },
+    {
+        "name": "Python-разработчик",
+        "url": "https://hh.ru/vacancy/108560172",
+        "salary": "Зарплата от 70000 до 95000 RUR",
+        "requirement": "Уверенное знание <highlighttext>Python</highlighttext>. Базовое понимание работы с БД (PostgreSQL, MySQL). Знание Django и/или Flask будет большим плюсом. "
+    },
+    {
+        "name": "Python Developer (Remote)",
+        "url": "https://hh.ru/vacancy/108424453",
+        "salary": "Зарплата не указана",
+        "requirement": "Коммерческий опыт создания веб-приложений с использованием <highlighttext>Python</highlighttext>-фреймворков (Django, FastAPI, Flask) от 1 года. Знание <highlighttext>Python</highlighttext> Core и встроенной..."
+    },
+    {
+        "name": "Python-разработчик",
+        "url": "https://hh.ru/vacancy/108481421",
+        "salary": "Зарплата не указана",
+        "requirement": "<highlighttext>Python</highlighttext> (flask/django, multiprocessing, pandas, numpy). Основы разработки Http сервера (низкая нагрузка). Sql (Postgres/MSSql). ООП, паттерны программирования. Gitlab(администрирование). "
+    },
+    {
+        "name": "Java Script",
+        "url": "https://hh.ru/vacancy/60003",
+        "salary": "200 000-150 000 руб.",
+        "requirement": "Требования: опыт работы от 12 лет..."
+    },
+    {
+        "name": "Дата аналитик/Data analyst",
+        "url": "https://hh.ru/vacancy/108499219",
+        "salary": "Зарплата не указана",
+        "requirement": "Опыт работы с Excel, Power BI, SQL, <highlighttext>Python</highlighttext> для сбора и анализа данных. -Опыт работы с инструментами визуализации данных, такими..."
     }
 ]
