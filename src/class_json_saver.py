@@ -91,24 +91,9 @@ class JsonSaver(FileMethods):
 
 
 # Пример использования
-emp1 = Vacancies("Python Developer", "https://hh.ru/vacancy/123456", "100 000-150 000 руб.",
-                 "Требования: опыт работы от 3 лет...")
-emp2 = Vacancies("Java Developer", "https://hh.ru/vacancy/654123", "200 000-150 000 руб.",
-                 "Требования: опыт работы от 12 лет...")
-emp3 = Vacancies("C++ Developer", "https://hh.ru/vacancy/987654", "250 000 руб.",
-                 "Требования: опыт работы от 10 лет...")
-emp4 = Vacancies("C++ Developer", "https://hh.ru/vacancy/987654", "250 000 руб.",
-                 "Требования: опыт работы от 10 лет...")
-emp5 = Vacancies("GOGO Developer", "https://hh.ru/vacancy/9823423454", "250 000 руб.",
-                 "Требования: опыт работы от 10 лет...")
-emp6 = Vacancies("Python Developer", "https://hh.ru/vacancy/000000", "100 000-150 000 руб.",
-                 "Требования: опыт работы от 3 лет...")
-# Создаем экземпляр класса JsonSaver
-saver = JsonSaver()
-listado = [emp1, emp2, emp3, emp4, emp5, emp6]
-saver.add_vacancy(listado)
-saver.delete_info(emp2)
 
-print(saver.get_info('Developer'))
+# saver.delete_info(emp2)
+
+# print(saver.get_info('Developer'))
 
 

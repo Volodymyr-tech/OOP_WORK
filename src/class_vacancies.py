@@ -12,17 +12,11 @@ class Vacancies():
         self.url = url
         self.salary = salary
         self.requirement = requirement
-        # if self.url is None:
-        #     raise ValueError(f"URL не может быть None для вакансии: {self.name}")
-        # print(f'Создан объект вакансии: {self.name} с URL: {self.url}')
 
 
     @classmethod
-    def get_list_vacancies(cls):
+    def get_list_vacancies(cls, vacancies):
         '''Класс-метод для создания списка объектов класса Vacancy'''
-        vacancies = HH()
-        vacancies.load_vacancies('Python')
-        vacancies = vacancies.get_vacancies
 
         vacancies_list = [
             cls(
@@ -54,6 +48,7 @@ class Vacancies():
     def __hash__(self):
         return hash(self.url)
 
+
     def _extract_numbers(self):
         """Извлекает все числа из строки"""
 
@@ -67,7 +62,8 @@ class Vacancies():
         else:
             return numbers[0], numbers[-1]
 
-    def average_salary(self):
+
+    def _average_salary(self):
         salary = self._extract_numbers()
         if 0 in salary:
             average_salary = sum(salary)
@@ -80,18 +76,18 @@ class Vacancies():
         if not isinstance(other, Vacancies):
             raise TypeError("Операнд справа должен иметь тип Vacancy")
         else:
-            return self.average_salary() <= other.average_salary()
+            return self._average_salary() <= other._average_salary()
 
 
     def __gt__(self, other):
         if not isinstance(other, Vacancies):
             raise TypeError("Операнд справа должен иметь тип Vacancy")
         else:
-            return self.average_salary() > other.average_salary()
+            return self._average_salary() > other._average_salary()
 
 
     def __ge__(self, other):
         if not isinstance(other, Vacancies):
             raise TypeError("Операнд справа должен иметь тип Vacancy")
         else:
-            return self.average_salary() >= other.average_salary()
+            return self._average_salary() >= other._average_salary()
