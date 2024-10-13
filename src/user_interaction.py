@@ -3,6 +3,7 @@ from src.class_json_saver import JsonSaver
 from src.class_vacancies import Vacancies
 from src.utils import sort_vacancies_by_salary
 
+
 class UserInteraction:
     def __init__(self):
         self.api = HH()  # Инициализируем класс для работы с API hh.ru
@@ -42,6 +43,7 @@ class UserInteraction:
         res = self.saver.get_all_vacancies()
         for i in res:
             print(i)
+
     def delete_vacancy(self):
         """Удаляем вакансию по URL"""
         url = input("Введите URL вакансии, которую нужно удалить: ")

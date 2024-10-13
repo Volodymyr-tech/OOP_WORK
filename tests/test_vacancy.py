@@ -24,7 +24,6 @@ def test_init_2():
 
 
 def test_init_3():
-    emp = Vacancies
     emp4 = Vacancies(
         "NODE", "https://hh.ru/vacancy/108435856", 'Зарплата от 0 до "Верхняя планка не указана" USD', "работай больше"
     )

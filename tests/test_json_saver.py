@@ -1,18 +1,18 @@
-import unittest
-from unittest.mock import patch, MagicMock
+from unittest.mock import patch
 from src.class_json_saver import JsonSaver
 from src.class_vacancies import Vacancies
 
 
 # Тест добавления вакансий
-@patch('src.class_json_saver.JsonSaver._JsonSaver__open_file')
-@patch('src.class_json_saver.JsonSaver._JsonSaver__write_to_file')
+@patch("src.class_json_saver.JsonSaver._JsonSaver__open_file")
+@patch("src.class_json_saver.JsonSaver._JsonSaver__write_to_file")
 def test_add_vacancy(mock_write_to_file, mock_open_file):
     """Тест добавления вакансий в JSON файл"""
 
     # Создаем тестовые вакансии
-    vacancy1 = Vacancies(name="Python Developer", url="https://hh.ru/vacancy/123", salary="100000",
-                         requirement="Python")
+    vacancy1 = Vacancies(
+        name="Python Developer", url="https://hh.ru/vacancy/123", salary="100000", requirement="Python"
+    )
     vacancy2 = Vacancies(name="Java Developer", url="https://hh.ru/vacancy/456", salary="150000", requirement="Java")
 
     # Имитируем, что в файле уже есть одна вакансия
@@ -30,13 +30,14 @@ def test_add_vacancy(mock_write_to_file, mock_open_file):
 
 
 # Тест получения всех вакансий
-@patch('src.class_json_saver.JsonSaver._JsonSaver__open_file')
+@patch("src.class_json_saver.JsonSaver._JsonSaver__open_file")
 def test_get_all_vacancies(mock_open_file):
     """Тест получения всех вакансий"""
 
     # Создаем тестовые вакансии
-    vacancy1 = Vacancies(name="Python Developer", url="https://hh.ru/vacancy/123", salary="100000",
-                         requirement="Python")
+    vacancy1 = Vacancies(
+        name="Python Developer", url="https://hh.ru/vacancy/123", salary="100000", requirement="Python"
+    )
     vacancy2 = Vacancies(name="Java Developer", url="https://hh.ru/vacancy/456", salary="150000", requirement="Java")
 
     # Имитация вакансий в файле
@@ -51,13 +52,14 @@ def test_get_all_vacancies(mock_open_file):
 
 
 # Тест фильтрации вакансий по ключевому слову
-@patch('src.class_json_saver.JsonSaver._JsonSaver__open_file')
+@patch("src.class_json_saver.JsonSaver._JsonSaver__open_file")
 def test_get_info(mock_open_file):
     """Тест фильтрации вакансий по ключевому слову"""
 
     # Создаем тестовые вакансии
-    vacancy1 = Vacancies(name="Python Developer", url="https://hh.ru/vacancy/123", salary="100000",
-                         requirement="Python")
+    vacancy1 = Vacancies(
+        name="Python Developer", url="https://hh.ru/vacancy/123", salary="100000", requirement="Python"
+    )
     vacancy2 = Vacancies(name="Java Developer", url="https://hh.ru/vacancy/456", salary="150000", requirement="Java")
 
     # Имитация вакансий в файле
@@ -67,19 +69,20 @@ def test_get_info(mock_open_file):
     saver = JsonSaver()
 
     # Имитируем ввод ключевого слова для поиска вакансий
-    with patch('builtins.print') as mocked_print:
+    with patch("builtins.print") as mocked_print:
         saver.get_info("Python")
         mocked_print.assert_called_once_with(vacancy1)
 
 
 # Тест сортировки вакансий по зарплате
-@patch('src.class_json_saver.JsonSaver._JsonSaver__open_file')
+@patch("src.class_json_saver.JsonSaver._JsonSaver__open_file")
 def test_sort_vacancies_by_salary(mock_open_file):
     """Тест сортировки вакансий по зарплате"""
 
     # Создаем тестовые вакансии с разными зарплатами
-    vacancy1 = Vacancies(name="Python Developer", url="https://hh.ru/vacancy/123", salary="100000",
-                         requirement="Python")
+    vacancy1 = Vacancies(
+        name="Python Developer", url="https://hh.ru/vacancy/123", salary="100000", requirement="Python"
+    )
     vacancy2 = Vacancies(name="Java Developer", url="https://hh.ru/vacancy/456", salary="150000", requirement="Java")
     vacancy3 = Vacancies(name="Go Developer", url="https://hh.ru/vacancy/789", salary="200000", requirement="Go")
 
@@ -90,11 +93,10 @@ def test_sort_vacancies_by_salary(mock_open_file):
     saver = JsonSaver()
 
     # Имитируем сортировку вакансий
-    with patch('builtins.print') as mocked_print:
+    with patch("builtins.print") as mocked_print:
         saver.sort_vacancies_by_salary("да")
 
         # Проверяем, что вакансии напечатаны в правильном порядке (по убыванию зарплаты)
         mocked_print.assert_any_call(vacancy3)
         mocked_print.assert_any_call(vacancy2)
         mocked_print.assert_any_call(vacancy1)
-

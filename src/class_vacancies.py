@@ -1,5 +1,5 @@
 import re
-from typing import Any, Dict, List
+from typing import Any
 
 
 class Vacancies:
@@ -37,10 +37,10 @@ class Vacancies:
                 ),
                 requirement=vac.get("snippet", {}).get("requirement", "нет описания"),
             )
-            for vac in vacancies  #  Преобразовывем список словарей в список объектов класса Вакансия
+            for vac in vacancies
         ]
 
-        return vacancies_list
+        return vacancies_list #Преобразовывем список словарей в список объектов класса Вакансия
 
     # def __repr__(self):
     #     return f"{self.name}, link:{self.url}\n" f"Salary:{self.salary},{self.requirement}"
