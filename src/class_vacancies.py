@@ -40,7 +40,7 @@ class Vacancies:
             for vac in vacancies
         ]
 
-        return vacancies_list #Преобразовывем список словарей в список объектов класса Вакансия
+        return vacancies_list  # Преобразовывем список словарей в список объектов класса Вакансия
 
     # def __repr__(self):
     #     return f"{self.name}, link:{self.url}\n" f"Salary:{self.salary},{self.requirement}"

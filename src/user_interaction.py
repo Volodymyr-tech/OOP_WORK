@@ -23,11 +23,6 @@ class UserInteraction:
         n = int(input("Введите количество вакансий для вывода (топ N по зарплате): "))
         all_vacancies = self.saver.get_all_vacancies()  # Получаем все вакансии как объекты Vacancies
 
-        # Убедимся, что вакансии - это объекты класса Vacancies
-        if not all(isinstance(vac, Vacancies) for vac in all_vacancies):
-            print("Ошибка: данные вакансий имеют неправильный формат.")
-            return
-
         sorted_vacancies = sort_vacancies_by_salary(all_vacancies)  # Сортируем вакансии по зарплате
         top_n = sorted_vacancies[:n]  # Берем топ N вакансий
         for vacancy in top_n:

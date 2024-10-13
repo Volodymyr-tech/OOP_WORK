@@ -29,7 +29,6 @@ def test_add_vacancy(mock_write_to_file, mock_open_file):
     mock_write_to_file.assert_called_once_with(expected_vacancies)
 
 
-# Тест получения всех вакансий
 @patch("src.class_json_saver.JsonSaver._JsonSaver__open_file")
 def test_get_all_vacancies(mock_open_file):
     """Тест получения всех вакансий"""
@@ -48,10 +47,9 @@ def test_get_all_vacancies(mock_open_file):
 
     # Проверяем, что метод возвращает все вакансии
     all_vacancies = saver.get_all_vacancies()
-    assert all_vacancies == [vacancy1, vacancy2]
+    assert all_vacancies == {vacancy1, vacancy2}
 
 
-# Тест фильтрации вакансий по ключевому слову
 @patch("src.class_json_saver.JsonSaver._JsonSaver__open_file")
 def test_get_info(mock_open_file):
     """Тест фильтрации вакансий по ключевому слову"""
@@ -74,7 +72,6 @@ def test_get_info(mock_open_file):
         mocked_print.assert_called_once_with(vacancy1)
 
 
-# Тест сортировки вакансий по зарплате
 @patch("src.class_json_saver.JsonSaver._JsonSaver__open_file")
 def test_sort_vacancies_by_salary(mock_open_file):
     """Тест сортировки вакансий по зарплате"""
@@ -94,7 +91,7 @@ def test_sort_vacancies_by_salary(mock_open_file):
 
     # Имитируем сортировку вакансий
     with patch("builtins.print") as mocked_print:
-        saver.sort_vacancies_by_salary("да")
+        saver.sort_vacancies_by_salary(mock_open_file.return_value)
 
         # Проверяем, что вакансии напечатаны в правильном порядке (по убыванию зарплаты)
         mocked_print.assert_any_call(vacancy3)

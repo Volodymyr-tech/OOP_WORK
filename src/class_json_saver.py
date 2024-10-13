@@ -80,7 +80,7 @@ class JsonSaver(FileMethods):
     def get_all_vacancies(self):
         """Вывод информации о вакансии по указанному ключевому слову полученому от юзера"""
         existing_vacancies = self.__open_file()  # Загружаем данные из файла
-        return list(existing_vacancies)  # Возвращаем список объектов класса Vacancies
+        return existing_vacancies  # Возвращаем список объектов класса Vacancies
 
     def delete_info(self, filter):
         """Удаление вакансии из JSON файла"""
@@ -93,12 +93,11 @@ class JsonSaver(FileMethods):
         self.__save_vacancy(existing_vacancies)  # преобразует вакансии в формат списка словарей.
         self.__write_to_file(existing_vacancies)
 
-    def sort_vacancies_by_salary(self, filter):
+    def sort_vacancies_by_salary(self, existing_vacancies):
         """Функция для сортировки вакансий по зарплате"""
-        if filter == "да":
-            existing_vacancies = self.__open_file()
-            by_salary = sorted(existing_vacancies, key=lambda x: x.salary, reverse=True)
-            for i in by_salary:
-                print(i)
+        # existing_vacancies = self.__open_file()
+        by_salary = sorted(existing_vacancies, key=lambda x: x.salary, reverse=True)
+        for i in by_salary:
+            print(i)
         else:
             None
